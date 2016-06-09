@@ -5,6 +5,8 @@ from captcha.fields import ReCaptchaField
 
 from registration.models import *
 from django.forms.models import ModelForm
+from registration.views import *
+
 
 class UploadFileForm(forms.Form):
     file = forms.FileField()
@@ -62,15 +64,14 @@ class UserRegistrationForm(ModelForm):
         if commit: user.save()
         return user
 
-student_fields = ['stud_id','aums_id','name','curr_course','branch','tenth_mark','twelth_mark',
+student_fields = ['name','curr_course','branch','tenth_mark','twelth_mark',
                   's1','s2','s3','s4','s6','cgpa','curr_arrears','hist_arrears']
 
 class StudentRegistrationForm(ModelForm):
 
     class Meta:
         model = Student
-        fields = student_fields
-
+        fields = ['aums_id']+student_fields
 
 
 
