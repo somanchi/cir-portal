@@ -73,5 +73,17 @@ class StudentRegistrationForm(ModelForm):
         model = Student
         fields = ['aums_id']+student_fields
 
+test_widgets = {
+    'username'    : forms.TextInput(attrs={'placeholder':_('Username'), 'required': True}),
+    'marks'         : forms.TextInput(attrs={'placeholder':_('marks obtained'),
+                                             'required': True}),
+
+}
 
 
+test_fields = ['marks']
+
+class TechnicalTestEntryForm(ModelForm):
+    class Meta:
+        model = TechnicalTest
+        fields = test_fields
